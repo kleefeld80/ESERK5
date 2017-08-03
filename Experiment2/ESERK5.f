@@ -16021,7 +16021,7 @@ c     &              ((err_old/tol)**0.2d0)
 c              fac = min(10.0d0,fac)
 c              fac = min(0.9d0*sqrt(tol/err),fac)
 c              fac = max(fac,0.1d-3)
-              fac = 0.8d0*(1.0d0/err)**0.25d0
+              fac = 0.8d0*(1.0d0/err)**(1.0d0/5.0d0)
               fac = min(10.0d0,fac)
               fac = max(fac,0.1d-3)
               dt = dt*fac
@@ -16039,7 +16039,7 @@ c     accept step
 c     calculate new timestep
 c                fac = 0.9d0*((tol/err)**0.35d0)*
 c     &              ((err_old/tol)**0.2d0)
-                fac = 0.8d0*(1.0d0/err)**0.25d0
+                fac = 0.8d0*(1.0d0/err)**(1.0d0/5.0d0)
                 if (t < tfail) then
                    sec = 1
                 else
